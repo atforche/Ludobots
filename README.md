@@ -10,6 +10,8 @@ This repo contains my work as I work through the Evolutionary Robotics course fo
 
 *[Sensors.py](#sensors)
 
+*[Neurons.py](#neurons)
+
 ## <a name="empty">Empty.py</a>
 In this file, a default pyrosim simulation is created and visualized. This is primarily a test of the installation of the pryrosim package.
 
@@ -21,3 +23,6 @@ This file is a basic introduction to joints in the pyrosim simulation. Joints ar
 
 ## <a name=sensors">Sensors.py</a>
   This file is a basic introduction to the different sensor modules in the pyrosim simulation. There are three main types of sensors explored, including the touch, propioception, and ray sensors. The touch sensor returns a 0 or 1 depending on whether the body is touching another body or not. The propioception sensor returns the degree of a particular joint as it goes throughout its motion. The ray sensor casts a ray out into the environment and either returns the max length of the ray or the distance to the nearest obstacle.
+
+## <a name=neurons">Neurons.py</a>
+  This file is a basic introduction to the different types of neurons and motors found in the pyrosim simulation. A sensor neuron has the ability to pull the sensor value from a specified sensor at each timestep. A motor neuron provides an output that is the result of an activiation function being applied to its input at every time step. Finally, there is a rotary actuator which will take in the input from the motor neuron and adjust the joint to the specified angle.
