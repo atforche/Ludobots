@@ -22,6 +22,10 @@ This repo contains my work as I work through the Evolutionary Robotics course fo
 
 *[Individual.py](#individual)
 
+*[HillClimber.py](#hillclimber)
+
+*[Playback.py](#playback)
+
 ## <a name="empty">Empty.py</a>
 In this file, a default pyrosim simulation is created and visualized. This is primarily a test of the installation of the pryrosim package.
 
@@ -50,4 +54,10 @@ This file serves as the class defintion for the ROBOT class. This class contains
 This file is the beginnings of a random search algorithm through the robot solution space. Robots are generated with a random synapse weight and the fitness is defined as the distance in the y direction that the robot moves. There currently is no form of selection implemented.
 
 ## <a name="individual">Individual.py</a>
-This file contains the INDIVIDUAL class, which contains both a robot and a simulation. The robot is created and evalutated within the context of the simulation. The fitness of the individual is updated after the simulation is run, and this can be retrieved from the class.
+This file contains the INDIVIDUAL class, which contains both a robot and a simulation. The robot is created and evalutated within the context of the simulation. The fitness of the individual is updated after the simulation is run, and this can be retrieved from the class. The mutation function for an individual is defined as a Gaussian curve centered around the current synapse weight with a standard deviation equal to the absolute value of the current weight. This promotes mutations that different from the current weight by a small amount, however larger mutations are still possible just with a lower probability.
+
+## <a name="hillclimber">HillClimber.py</a>
+This file introduces a new search strategy for exploring the robot solution landscape. This strategy focuses on smaller changes to the genotype to slowing climb the hill of the fitness landscape. Smaller mutations allow for the robots to exhibit more directional progress toward the goal. The best current robot is stored after each generation and every mutated robot is an offspring from the current best. This preserves a sense of forward progress in the population.
+
+## <a name="playback">Playback.py</a>
+This file gives the ability to play back brains that have been previously evolved using the Python Pickle library.
