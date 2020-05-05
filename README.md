@@ -18,6 +18,10 @@ This repo contains my work as I work through the Evolutionary Robotics course fo
 
 *[Robot.py](#robot)
 
+*[RandomSearch.py](#randomsearch)
+
+*[Individual.py](#individual)
+
 ## <a name="empty">Empty.py</a>
 In this file, a default pyrosim simulation is created and visualized. This is primarily a test of the installation of the pryrosim package.
 
@@ -41,3 +45,9 @@ This file serves at the driver program for search the solution space of all avai
 
 ## <a name="robot">Robot.py</a>
 This file serves as the class defintion for the ROBOT class. This class contains all the information necessary for creating the robot with various characteristics that will operate in the simulation.
+
+## <a name="randomsearch">RandomSearch.py</a>
+This file is the beginnings of a random search algorithm through the robot solution space. Robots are generated with a random synapse weight and the fitness is defined as the distance in the y direction that the robot moves. There currently is no form of selection implemented.
+
+## <a name="individual">Individual.py</a>
+This file contains the INDIVIDUAL class, which contains both a robot and a simulation. The robot is created and evalutated within the context of the simulation. The fitness of the individual is updated after the simulation is run, and this can be retrieved from the class.
