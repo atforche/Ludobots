@@ -14,6 +14,10 @@ This repo contains my work as I work through the Evolutionary Robotics course fo
 
 *[Synapses.py](#synapses)
 
+*[Search.py](#search)
+
+*[Robot.py](#robot)
+
 ## <a name="empty">Empty.py</a>
 In this file, a default pyrosim simulation is created and visualized. This is primarily a test of the installation of the pryrosim package.
 
@@ -31,3 +35,9 @@ This file is a basic introduction to joints in the pyrosim simulation. Joints ar
 
 ## <a name="synapses">Synapses.py</a>
 This file introduces the ability to connect neurons together and produce responses in the robot due to its envinronment. Both of the touch sensors are attached to the motor neuron, which controls the rotary actuator on the single joint of the robot. Changing the weight of each synapse connection changes the overal behavior of the robot.
+
+## <a name="search">Search.py</a>
+This file serves at the driver program for search the solution space of all available robots to observe robots with interesting characteristics. Initially, robots are all created with an identical physical structure but different brain weights and connections.
+
+## <a name="robot">Robot.py</a>
+This file serves as the class defintion for the ROBOT class. This class contains all the information necessary for creating the robot with various characteristics that will operate in the simulation.
