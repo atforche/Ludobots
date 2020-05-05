@@ -1,4 +1,5 @@
 import random
+import math
 import pyrosim
 from robot import ROBOT
 
@@ -8,8 +9,8 @@ class INDIVIDUAL:
         self.genome = random.random() * 2 - 1
         self.fitness = 0
 
-    def Evaluate(self):
-        sim = pyrosim.Simulator(eval_steps=500)
+    def Evaluate(self, pb):
+        sim = pyrosim.Simulator(eval_steps=500, play_blind=pb)
         robot = ROBOT(sim, self.genome)
         sim.start()
         sim.wait_to_finish()
@@ -25,3 +26,6 @@ class INDIVIDUAL:
         # plt.show()
         # print(y[-1])
         self.fitness = y[-1]
+
+    def Mutate(self):
+        self.genome = random.gauss(self.genome, math.fabs(self.genome))
