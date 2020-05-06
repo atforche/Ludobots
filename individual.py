@@ -7,7 +7,7 @@ import numpy
 class INDIVIDUAL:
 
     def __init__(self, i):
-        self.genome = numpy.random.rand(4) * 2 - 1
+        self.genome = numpy.random.rand(4,8) * 2 - 1
         self.fitness = 0
         self.ID = i
 
@@ -29,8 +29,13 @@ class INDIVIDUAL:
 
 
     def Mutate(self):
-        geneToMutate = random.randint(0,3)
-        self.genome[geneToMutate] = random.gauss(self.genome[geneToMutate], math.fabs(self.genome[geneToMutate]))
+        rowToMutate = random.randint(0,len(self.genome)-1)
+        colToMutate = random.randint(0,len(self.genome[0])-1)
+        self.genome[rowToMutate][colToMutate] = random.gauss(self.genome[rowToMutate][colToMutate], math.fabs(self.genome[rowToMutate][colToMutate]))
+        if self.genome[rowToMutate][colToMutate] > 1:
+            self.genome[rowToMutate][colToMutate] = 1
+        elif self.genome[rowToMutate][colToMutate] < -1:
+            self.genome[rowToMutate][colToMutate] = -1
 
     def Print(self):
         print('[', self.ID, '] [', self.fitness, ']')
