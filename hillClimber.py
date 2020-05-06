@@ -17,7 +17,7 @@ for i in range(100):
     print('[g:', i,'] [pw:', parent.genome, '] [p:', parent.fitness, '] [c:', child.fitness, ']')
     if (child.fitness > parent.fitness):
         parent = child
-        child.Evaluate(False)
-        f = open('robot.p', 'wb')
-        pickle.dump(parent, f)
-        f.close()
+        child.Evaluate(True)
+        # f = open('robot.p', 'wb')
+        # pickle.dump(parent, f)
+        # f.close()
