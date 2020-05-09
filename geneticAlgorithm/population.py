@@ -1,6 +1,7 @@
 from individual import INDIVIDUAL
 import copy
 import random
+from Environments import ENVIRONMENTS
 
 class POPULATION:
 
@@ -19,12 +20,16 @@ class POPULATION:
                 self.p[i].Print()
         print()
 
-    def Evaluate(self, playBlind):
+    def Evaluate(self, envs, pp=False, pb=True):
         for i in self.p:
-            self.p[i].Start_Evaluation(playBlind)
-
+            self.p[i].fitness = 0
+        for e in range(len(envs.envs)):
+            for i in self.p:
+                self.p[i].Start_Evaluation(envs.envs[e], pp,pb)
+            for i in self.p:
+                self.p[i].Compute_Fitness()
         for i in self.p:
-            self.p[i].Compute_Fitness()
+            self.p[i].fitness = self.p[i].fitness / 4
 
     def Mutate(self):
         for i in self.p:

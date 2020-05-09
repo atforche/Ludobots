@@ -47,12 +47,12 @@ class ROBOT:
         self.J0 = sim.send_hinge_joint(self.O0, self.O1, (0, c.L/2, c.L + c.R), axis=(-1,0,0))
         self.J1 = sim.send_hinge_joint(self.O0, self.O2, (c.L/2, 0, c.L+c.R), axis=(0,-1,0))
         self.J2 = sim.send_hinge_joint(self.O0, self.O3, (0, -c.L/2, c.L+c.R), axis=(-1,0,0))
-        self.J3 = sim.send_hinge_joint(self.O0, self.O4, (-c.L/2, 0, c.L+c.R), axis=(0,-1,0))
+        self.J3 = sim.send_hinge_joint(self.O0, self.O4, (-c.L/2, 0, c.L+c.R), axis=(0,1,0))
 
-        self.J4 = sim.send_hinge_joint(self.O1, self.O5, (0, 1.5*c.L, c.L + c.R), axis=(-1,0,0))
-        self.J5 = sim.send_hinge_joint(self.O2, self.O6, (1.5*c.L, 0, c.L+c.R), axis=(0,-1,0))
-        self.J6 = sim.send_hinge_joint(self.O3, self.O7, (0, -1.5*c.L, c.L+c.R), axis=(-1,0,0))
-        self.J7 = sim.send_hinge_joint(self.O4, self.O8, (-1.5*c.L, 0, c.L+c.R), axis=(0,-1,0))
+        self.J4 = sim.send_hinge_joint(self.O1, self.O5, (0, 1.5*c.L, c.L + c.R), axis=(0,1,0))
+        self.J5 = sim.send_hinge_joint(self.O2, self.O6, (1.5*c.L, 0, c.L+c.R), axis=(1,0,0))
+        self.J6 = sim.send_hinge_joint(self.O3, self.O7, (0, -1.5*c.L, c.L+c.R), axis=(0,1,0))
+        self.J7 = sim.send_hinge_joint(self.O4, self.O8, (-1.5*c.L, 0, c.L+c.R), axis=(1,0,0))
 
         self.J = {}
         self.J[0] = self.J0
@@ -70,7 +70,7 @@ class ROBOT:
         self.T1 = sim.send_touch_sensor(body_id=self.O6)
         self.T2 = sim.send_touch_sensor(body_id=self.O7)
         self.T3 = sim.send_touch_sensor(body_id=self.O8)
-        self.P4 = sim.send_position_sensor(body_id=self.O0, which_dimension='x')
+        self.L4 = sim.send_light_sensor(body_id=self.O0)
         self.P5 = sim.send_position_sensor(body_id=self.O0, which_dimension='y')
         self.P6 = sim.send_position_sensor(body_id=self.O0, which_dimension='z')
 
@@ -79,6 +79,7 @@ class ROBOT:
         self.S[1] = self.T1
         self.S[2] = self.T2
         self.S[3] = self.T3
+        self.S[4] = self.L4
 
 
     def send_neurons(self,sim):
