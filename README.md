@@ -32,6 +32,8 @@ This repo contains my work as I work through the Evolutionary Robotics course fo
 
 *[MinimalRobot.py](#minimal)
 
+*[GeneticAlgorithm.py](#genetic)
+
 ## <a name="empty">Empty.py</a>
 In this file, a default pyrosim simulation is created and visualized. This is primarily a test of the installation of the pryrosim package.
 
@@ -69,10 +71,13 @@ This file introduces a new search strategy for exploring the robot solution land
 This file gives the ability to play back brains that have been previously evolved using the Python Pickle library.
 
 ## <a name="population">Population.py</a>
-This class groups together a population of individuals for evaluated and mutation. This allows for a group of individuals to be evaluated simultaenously, and selection can be performs on every individual at once.
+This class groups together a population of individuals for evaluated and mutation. This allows for a group of individuals to be evaluated simultaenously, and selection can be performs on every individual at once. Added functionalities to the POPULATION class that enable tournament selection with a single elite individual.
 
 ## <a name="parallel">ParallelHillClimber.py</a>
 This file introduces another new search strategy for exploring the robot solution landscape. As the complexity of the neural networks increase, the number of local optima in the fitness landscape increases. In order to combat this, multiple hill climbers are set at different points in the fitness space and evaluated in parallel. By having multiple hill climbers spread around the landscape, the odds of a single hill climber climbing all the way to the global maxmia increases.
 
 ## <a name="minimal">MinimalRobot.py</a>
 This file contains a minimal Robot made up of two cylinders, a single joint, and a single motor neuron.
+
+## <a name="genetic">GeneticAlgorithm.py</a>
+ This file contains a driver that operates a basic genetic algorithm on the robot population. This genetic algorithm performs tournament selection to determine the next generation, with a single elite individual maintained from generation to generation.
